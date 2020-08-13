@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "hospital-service"
+  name: "authentication-service"
 spec:
   # if your cluster supports it, uncomment the following to automatically create
   # an external load-balanced IP for the frontend service.
@@ -13,12 +13,12 @@ spec:
     port: 8080
 
   selector:
-    app: "hospital-selector"
+    app: "authentication-selector"
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: "hospital-deployment"
+  name: "authentication-deployment"
 spec:
   # this replicas value is default
   # modify it according to your case
@@ -26,11 +26,11 @@ spec:
   template:
     metadata:
       labels:
-        app: "hospital-selector"
+        app: "authentication-selector"
     spec:
       containers:
-      - name: hospital
-        image: hospital:latest
+      - name: authentication
+        image: authentication:latest
         readinessProbe:
           httpGet:
             path: /health
