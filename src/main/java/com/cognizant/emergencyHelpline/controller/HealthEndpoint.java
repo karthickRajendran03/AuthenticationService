@@ -1,4 +1,4 @@
-package com.cognizant.emergencyHelpline.controllers;
+package com.cognizant.emergencyHelpline.controller;
 
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
